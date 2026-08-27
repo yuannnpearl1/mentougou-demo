@@ -9,7 +9,7 @@ var BACKEND_AVAILABLE = false;
 var addressJson = {
     'zzzc': 'zzzc.html', 'spsp': '#', 'ypsp': '#', 'tzsp': '#',
     'jlqjsp': '#', 'ylqxsp': '#', 'zscqfw': '#', 'qzxcprz': '#',
-    'sqkt': '#', 'tsjb': '#', 'bdxz': '#',
+    'sqkt': '#', 'tsjb': '#', 'bdxz': 'https://scjgj.beijing.gov.cn/bsfw/bgxz/',
     'zcjd': '#', 'ect': 'https://ect.scjgj.beijing.gov.cn/Index',
     'mtgjgs': '#', 'bjjgj': '#', 'xgzwwz': '#'
 };
