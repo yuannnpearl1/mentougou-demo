@@ -7,11 +7,14 @@ var BACKEND_AVAILABLE = false;
 
 // ===== 页面跳转映射 =====
 var addressJson = {
-    'zzzc': 'zzzc.html', 'spsp': '#', 'ypsp': '#', 'tzsp': '#',
-    'jlqjsp': '#', 'ylqxsp': '#', 'zscqfw': '#', 'qzxcprz': '#',
-    'sqkt': '#', 'tsjb': '#', 'bdxz': 'https://scjgj.beijing.gov.cn/bsfw/bgxz/',
-    'zcjd': '#', 'ect': 'https://ect.scjgj.beijing.gov.cn/Index',
-    'mtgjgs': '#', 'bjjgj': '#', 'xgzwwz': '#'
+    'zzzc': 'zzzc.html?v=20261115', 'spsp': 'spsp.html?v=20261115d', 'ypsp': 'ypsp.html?v=20261115d', 'tzsp': 'tzsp.html?v=20261115d',
+    'jlqjsp': 'jlqjsp.html?v=20261115d', 'ylqxsp': 'ylqxsp.html?v=20261115d', 'zscqfw': 'zscqfw.html?v=20261115d', 'qzxcprz': 'qzxcprz.html?v=20261115d',
+    'tsjb': 'https://www.12315.cn/', 'bdxz': 'https://scjgj.beijing.gov.cn/bsfw/bgxz/bgdjzc/',
+    'zcjd': 'https://scjgj.beijing.gov.cn/zwxx/2024zcjd/', 'ect': 'https://ect.scjgj.beijing.gov.cn/Index',
+    'mtgjgs': 'https://www.gsxt.gov.cn/index.html',
+    'bjjgj': 'https://scjgj.beijing.gov.cn/',
+    'xgzwwz': 'https://www.bjmtg.gov.cn/',
+    'xfzf': 'https://hfjs.samr.gov.cn/reception-center/report'
 };
 
 var jumpAddress = function (key) {
@@ -100,7 +103,7 @@ function getLocalAnswer(input) {
     var fallbacks = [
         '您的问题我已记录。建议拨打门头沟区市场监管局：010-69859423 获取准确答复。',
         '请在工作时间拨打010-69859423咨询工作人员。',
-        '您可以拨打010-69859423咨询，或点击上方“诉求快通”提交需求。'
+        '您可以拨打010-69859423咨询，或点击上方“行风政风”进入国家局平台反映作风问题。'
     ];
     return { answer: fallbacks[Math.floor(Math.random() * fallbacks.length)], sources: [] };
 }
