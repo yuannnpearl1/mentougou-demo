@@ -1,4 +1,10 @@
 /* ===== 子页面：顶部导航 ===== */
+.wrapper {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
 .sub-header {
     background: linear-gradient(135deg, #003399 0%, #0066CC 50%, #0088FF 100%);
     padding: 4.8vw 3.2vw;
@@ -22,7 +28,7 @@
 .sub-header-ghost { min-width: 18vw; }
 
 /* ===== 子页面主体 ===== */
-.sub-main { padding: 4vw 3.2vw 6vw; }
+.sub-main { flex: 1 0 auto; padding: 4vw 3.2vw 6vw; }
 .sub-banner {
     display: flex; align-items: center; gap: 3.2vw;
     background: linear-gradient(135deg, #E8F4FF 0%, #F0F8FF 100%);
@@ -36,8 +42,12 @@
     box-shadow: 0 1px 4px rgba(0,102,204,0.12);
 }
 .sub-banner-icon svg { width: 7vw; height: 7vw; }
+.sub-banner-text { min-width: 0; }
 .sub-banner-title { font-size: 4.2vw; font-weight: 600; color: #003399; }
-.sub-banner-desc { font-size: 3vw; color: #667; margin-top: 1vw; line-height: 1.5; }
+.sub-banner-desc {
+    font-size: 3vw; color: #667; margin-top: 1vw; line-height: 1.5;
+    overflow-wrap: break-word; line-break: strict; text-wrap: balance;
+}
 
 /* ===== 模块卡片（执照注册页） ===== */
 .module-list { display: flex; flex-direction: column; gap: 3.2vw; }
@@ -55,9 +65,15 @@ a.module-card { text-decoration: none; color: inherit; }
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .module-icon svg { width: 7.5vw; height: 7.5vw; }
-.module-info { flex: 1; }
-.module-name { font-size: 3.9vw; font-weight: 600; color: #1a1a1a; }
-.module-desc { font-size: 2.9vw; color: #8899aa; margin-top: 1.2vw; }
+.module-info { flex: 1; min-width: 0; }
+.module-name {
+    font-size: 3.9vw; font-weight: 600; color: #1a1a1a;
+    overflow-wrap: break-word; line-break: strict; text-wrap: balance;
+}
+.module-desc {
+    font-size: 2.9vw; color: #8899aa; margin-top: 1.2vw;
+    overflow-wrap: break-word; line-break: strict; text-wrap: balance;
+}
 .module-arrow { width: 5vw; height: 5vw; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .module-arrow svg { width: 4vw; height: 4vw; }
 
@@ -86,7 +102,11 @@ a.feature-card { text-decoration: none; color: inherit; }
     border-radius: 2.13vw; padding: 3.2vw 3.73vw;
 }
 .tip-title { font-size: 3.4vw; font-weight: 600; color: #B8860B; margin-bottom: 1.3vw; }
-.tip-text { font-size: 3vw; color: #8a7440; line-height: 1.7; }
+.tip-text {
+    font-size: 3vw; color: #8a7440; line-height: 1.7;
+    overflow-wrap: break-word; line-break: strict; text-wrap: balance;
+}
+.keep-together { white-space: nowrap; }
 
 /* ===== 段落标题 ===== */
 .sec-title {
@@ -218,7 +238,12 @@ a.feature-card { text-decoration: none; color: inherit; }
 .success-text { font-size: 3vw; color: #667; margin-top: 1.3vw; line-height: 1.7; }
 
 /* ===== 页脚 ===== */
-.sub-footer { text-align: center; font-size: 2.6vw; color: #99A; padding: 0 3.2vw 6vw; }
+.sub-footer {
+    width: 100%;
+    margin-top: auto;
+    text-align: center; font-size: 2.6vw; color: #99A;
+    padding: 4vw 3.2vw 6vw;
+}
 
 /* ===== 桌面端适配 ===== */
 @media (min-width: 481px) {
