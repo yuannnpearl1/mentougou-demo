@@ -1,13 +1,11 @@
 ﻿// ===== 后端 API 配置 =====
-// ===== 后端 API 地址 =====
-// natapp 公网地址（让 GitHub Pages 能访问你的后端）
-// 本地地址
-var API_BASE_URL = ''; // 同源访问
+// 同源部署保持为空；跨域部署时在 index.html 的 AI_API_BASE_URL 中配置公网 HTTPS 地址。
+var API_BASE_URL = String(window.AI_API_BASE_URL || '').replace(/\/$/, '');
 var BACKEND_AVAILABLE = false;
 
 // ===== 页面跳转映射 =====
 var addressJson = {
-    'zzzc': 'zzzc.html?v=20261115', 'spsp': 'spsp.html?v=20261115d', 'ypsp': 'ypsp.html?v=20261115d', 'tzsp': 'tzsp.html?v=20261115d',
+    'zzzc': 'zzzc.html?v=20261119', 'spsp': 'spsp.html?v=20261115d', 'ypsp': 'ypsp.html?v=20261115d', 'tzsp': 'tzsp.html?v=20261115d',
     'jlqjsp': 'jlqjsp.html?v=20261115d', 'ylqxsp': 'ylqxsp.html?v=20261115d', 'zscqfw': 'zscqfw.html?v=20261115d', 'qzxcprz': 'qzxcprz.html?v=20261115d',
     'tsjb': 'https://www.12315.cn/', 'bdxz': 'https://scjgj.beijing.gov.cn/bsfw/bgxz/bgdjzc/',
     'zcjd': 'https://scjgj.beijing.gov.cn/zwxx/2024zcjd/', 'ect': 'https://ect.scjgj.beijing.gov.cn/Index',
@@ -38,12 +36,18 @@ window.onload = function () {
 
 function checkBackend() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', API_BASE_URL + '/query?q=ping', true);
+    xhr.open('GET', API_BASE_URL + '/health', true);
     xhr.timeout = 3000;
     xhr.onload = function () {
-        BACKEND_AVAILABLE = true;
-        console.log('QA 后端已连接');
-        updateChatStatus('在线 · 智能回复');
+        if (xhr.status >= 200 && xhr.status < 300) {
+            BACKEND_AVAILABLE = true;
+            console.log('QA 后端已连接');
+            updateChatStatus('在线 · 智能回复');
+        } else {
+            BACKEND_AVAILABLE = false;
+            console.log('QA 后端未连接，使用本地知识库');
+            updateChatStatus('离线 · 本地回复');
+        }
     };
     xhr.onerror = function () {
         BACKEND_AVAILABLE = false;
@@ -111,7 +115,7 @@ function getLocalAnswer(input) {
 // ===== 调用后端 API =====
 function queryBackend(question) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', window.location.origin + '/query', true);
+    xhr.open('POST', API_BASE_URL + '/query', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.timeout = 15000;
 

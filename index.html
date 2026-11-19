@@ -39,7 +39,7 @@
                                                 <path d="M13.8 2H10.2C8.70883 2 7.5 3.20883 7.5 4.7C7.5 6.19117 8.70883 7.4 10.2 7.4H13.8C15.2912 7.4 16.5 6.19117 16.5 4.7C16.5 3.20883 15.2912 2 13.8 2Z" stroke="#0066CC" stroke-width="1.6"/>
                                             </svg>
                                         </div>
-                                        <span>执照注册</span>
+                                        <span>登记注册</span>
                                     </div>
                                     <div class="title-item" onclick="jumpAddress('spsp')">
                                         <div class="svg-icon">
@@ -282,7 +282,7 @@
                         </div>
                         <div>
                             <div class="chat-title">门头沟市场监管 · AI智询</div>
-                            <div class="chat-status">在线 · 智能回复</div>
+                            <div class="chat-status">检测中 · 正在连接</div>
                         </div>
                     </div>
                     <div class="chat-close" onclick="closeAIChat()">
@@ -317,7 +317,11 @@
             </div>
         </div>
    </div>
+   <script>
+       // 同源部署保持为空；GitHub Pages 连接公网后端时填写 HTTPS 地址。
+       window.AI_API_BASE_URL = '';
+   </script>
    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-   <script src="js/index.js?v=20261115d"></script>
+   <script src="js/index.js?v=20261119"></script>
 </body>
 </html>
